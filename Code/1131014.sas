@@ -1,5 +1,5 @@
 proc import out = cvd
-datafile = 'C:\¬ã¨s©Ò\1131\²Î­p¤ÀªR»P³nÅé¹ê§@\Á¿¸q\CVD_All.csv'
+datafile = 'C:\ç ”ç©¶æ‰€\1131\çµ±è¨ˆåˆ†æèˆ‡è»Ÿé«”å¯¦ä½œ\è¬›ç¾©\CVD_All.csv'
 dbms = csv replace;
 getnames = yes;
 datarow = 2;
@@ -10,14 +10,14 @@ set cvd;
 where gender = 1;
 run;
 
-/*²Ä¤@ÃD*/
+/*ç¬¬ä¸€é¡Œ*/
 
 proc format;
-value agegroupfmt 0 = '«C'
-                               1 = '¤¤'
-							   2 = '¦Ñ';
-value CVDfmt 0 = '¨S¦³¤ß¦åºŞ¯e¯f'
-                        1 = '¦³¤ß¦åºŞ¯e¯f';
+value agegroupfmt 0 = 'é’'
+                               1 = 'ä¸­'
+							   2 = 'è€';
+value CVDfmt 0 = 'æ²’æœ‰å¿ƒè¡€ç®¡ç–¾ç—…'
+                        1 = 'æœ‰å¿ƒè¡€ç®¡ç–¾ç—…';
 run;
 
 data cvd2;
@@ -29,16 +29,16 @@ else agegroup = 2;
 format agegroup agegroupfmt.;
 run;
 
-/*²Ä¤GÃD*/
+/*ç¬¬äºŒé¡Œ*/
 
 proc freq data = cvd2;
 table agegroup * CVD;
-label CVD = '¦³µL¤ß¦åºŞ¯e¯f' agegroup = '¦~ÄÖ¸s';
+label CVD = 'æœ‰ç„¡å¿ƒè¡€ç®¡ç–¾ç—…' agegroup = 'å¹´é½¡ç¾¤';
 format CVD CVDfmt.;
 run;
 
 proc freq data = cvd2;
 table agegroup * CVD  / chisq expected;
-label CVD = '¦³µL¤ß¦åºŞ¯e¯f' agegroup = '¦~ÄÖ¸s';
+label CVD = 'æœ‰ç„¡å¿ƒè¡€ç®¡ç–¾ç—…' agegroup = 'å¹´é½¡ç¾¤';
 format CVD CVDfmt.;
 run;
