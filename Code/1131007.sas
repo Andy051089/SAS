@@ -1,5 +1,5 @@
-/*²Ä¤@ÃD*/
-filename cvd 'C:/¬ã¨s©Ò/1131/²Î­p¤ÀªR»P³nÅé¹ê§@/Á¿¸q/CVD_All.csv';
+/*ç¬¬ä¸€é¡Œ*/
+filename cvd 'C:/ç ”ç©¶æ‰€/1131/çµ±è¨ˆåˆ†æèˆ‡è»Ÿé«”å¯¦ä½œ/è¬›ç¾©/CVD_All.csv';
 
 data cvd;
 infile cvd dsd firstobs = 2;
@@ -10,7 +10,7 @@ data cvd1;
 set cvd (firstobs = 20 obs = 3000 keep = age waist smoking);
 run;
 
-/*²Ä¤GÃD*/
+/*ç¬¬äºŒé¡Œ*/
 proc means data = cvd1 q1 p50 q3 maxdec = 2;
 var age;
 run;
@@ -30,23 +30,23 @@ var waist;
 run;
 
 proc format;
-value smokingfmt 0 = '¨S©âµÒ'
-                              1 = '¦³©âµÒ';
-value agegroupfmt 0 = '36·³¥H¤U'
-                               1 = '37·³¦Ü42·³'
-                               2 = '43·³¦Ü51·³'
-                               3 = '52·³¥H¤W';
+value smokingfmt 0 = 'æ²’æŠ½è¸'
+                              1 = 'æœ‰æŠ½è¸';
+value agegroupfmt 0 = '36æ­²ä»¥ä¸‹'
+                               1 = '37æ­²è‡³42æ­²'
+                               2 = '43æ­²è‡³51æ­²'
+                               3 = '52æ­²ä»¥ä¸Š';
 run;
 
 data ans;
 input agegroup 1 mean_sd $ 3-14 median_IQR $ 16-27;
-label mean_sd = 'mean¡Ósd' median_IQR = 'median(IQR)';
+label mean_sd = 'meanÂ±sd' median_IQR = 'median(IQR)';
 format agegroup agegroupfmt.;
 datalines;
-0 73.65¡Ó10.45 72.00(13.00)
-1 76.26¡Ó9.98  74.50(14.00)
-2 77.81¡Ó9.59  76.25(13.00)
-3 83.06¡Ó9.71  83.00(13.00)
+0 73.65Â±10.45 72.00(13.00)
+1 76.26Â±9.98  74.50(14.00)
+2 77.81Â±9.59  76.25(13.00)
+3 83.06Â±9.71  83.00(13.00)
 ;
 run;
 
@@ -59,9 +59,9 @@ var waist;
 ods select TestsForNormality;
 run;
 
-/*²Ä¤TÃD*/
+/*ç¬¬ä¸‰é¡Œ*/
 proc freq data = cvd2;
 table agegroup*smoking;
-label smoking = '¦³µL©âµÒ' agegroup = '¦~ÄÖ¤À²Õ';
+label smoking = 'æœ‰ç„¡æŠ½è¸' agegroup = 'å¹´é½¡åˆ†çµ„';
 format smoking smokingfmt. agegroup agegroupfmt.;
 run;
