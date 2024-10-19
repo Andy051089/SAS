@@ -1,4 +1,4 @@
-/*²Ä¤@­Óµ{¦¡§@·~*/
+/*ç¬¬ä¸€å€‹ç¨‹å¼ä½œæ¥­*/
 data case; 
 input Sub_Num $ 1-2 Sex $ 4 Exam1 6-7 Exam2 9-10 HW_Grade $ 12;
 datalines;
@@ -24,11 +24,11 @@ proc univariate data = case;
 class Sex;
 var Exam1 Exam2;
 run;
-/*¨Ï¥ÎPROC SUMMARY ¤£¥[PRINT¤£·|¦L¥X¨Ó
+/*ä½¿ç”¨PROC SUMMARY ä¸åŠ PRINTä¸æœƒå°å‡ºä¾†
 proc summary data = case std mean median qrange print;
 class Sex;
 var Exam1 Exam2;
-output out = summary;(§âµ²ªG¦s¶isummary)
+output out = summary;(æŠŠçµæœå­˜é€²summary)
 run;
 */
 data output;
@@ -42,7 +42,7 @@ F Exam1       89.50(5.79)   89.00(10.00)
 Exam2         79.83(10.96)  81.00(11.00)
 ;
 
-/*²Ä¤G­Óµ{¦¡§@·~*/
+/*ç¬¬äºŒå€‹ç¨‹å¼ä½œæ¥­*/
 data mistake;
 input id $ 1-3 town $ 5-7 region $ 9-10 year 12-13 budget 15-16 voter 18-22;
 datalines;
