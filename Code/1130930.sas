@@ -1,8 +1,8 @@
-/*²Ä¤@ÃD*/
-libname hw 'C:\¬ã¨s©Ò\1131\²Î­p¤ÀªR»P³nÅé¹ê§@\§@·~';
+/*ç¬¬ä¸€é¡Œ*/
+libname hw 'C:\ç ”ç©¶æ‰€\1131\çµ±è¨ˆåˆ†æžèˆ‡è»Ÿé«”å¯¦ä½œ\ä½œæ¥­';
 
 proc import out = hw.cvd1
-datafile = 'C:\¬ã¨s©Ò\1131\²Î­p¤ÀªR»P³nÅé¹ê§@\Á¿¸q\CVD_All.csv'
+datafile = 'C:\ç ”ç©¶æ‰€\1131\çµ±è¨ˆåˆ†æžèˆ‡è»Ÿé«”å¯¦ä½œ\è¬›ç¾©\CVD_All.csv'
 dbms = csv replace;
 getnames = yes;
 datarow = 2;
@@ -12,13 +12,13 @@ data work.cvd2;
 set hw.cvd1(keep = CVD age waist SBP DBP smoking firstobs = 2000 obs = 5000);
 run;
 
-/*²Ä¤GÃD*/
+/*ç¬¬äºŒé¡Œ*/
 /*2-1*/
 proc format;
-value CVDfmt 0 = 'µL¤ß¦åºÞ¯e¯f' 
-						1 = '¦³¤ß¦åºÞ¯e¯f';
-value BPfmt 0 = 'µL°ª¦åÀ£' 
-					 1 = '¦³°ª¦åÀ£';
+value CVDfmt 0 = 'ç„¡å¿ƒè¡€ç®¡ç–¾ç—…' 
+						1 = 'æœ‰å¿ƒè¡€ç®¡ç–¾ç—…';
+value BPfmt 0 = 'ç„¡é«˜è¡€å£“' 
+					 1 = 'æœ‰é«˜è¡€å£“';
 run;
 
 data cvd3;
@@ -27,7 +27,7 @@ if SBP = . | DBP = . then BP = .;
 else if SBP > 120 | DBP > 80 then BP = 1;
 else BP = 0;
 format CVD CVDfmt. BP BPfmt.;
-label BP = '¦³µL°ª¦åÀ£' CVD = '¦³µL¤ß¦åºÞ¯e¯f';
+label BP = 'æœ‰ç„¡é«˜è¡€å£“' CVD = 'æœ‰ç„¡å¿ƒè¡€ç®¡ç–¾ç—…';
 run;
 /*2-2*/
 proc freq data = cvd3;
