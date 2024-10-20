@@ -31,11 +31,11 @@ run;
 
 proc format;
 value smokingfmt 0 = '沒抽菸'
-                              1 = '有抽菸';
+                 1 = '有抽菸';
 value agegroupfmt 0 = '36歲以下'
-                               1 = '37歲至42歲'
-                               2 = '43歲至51歲'
-                               3 = '52歲以上';
+                  1 = '37歲至42歲'
+                  2 = '43歲至51歲'
+                  3 = '52歲以上';
 run;
 
 data ans;
