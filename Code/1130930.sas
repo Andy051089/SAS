@@ -16,9 +16,9 @@ run;
 /*2-1*/
 proc format;
 value CVDfmt 0 = '無心血管疾病' 
-						1 = '有心血管疾病';
+	     1 = '有心血管疾病';
 value BPfmt 0 = '無高血壓' 
-					 1 = '有高血壓';
+	    1 = '有高血壓';
 run;
 
 data cvd3;
