@@ -13,11 +13,11 @@ run;
 /*第一題*/
 
 proc format;
-value agegroupfmt 0 = '青'
-                               1 = '中'
-							   2 = '老';
+value agegroupfmt 0 = '青'                               
+                  1 = '中'
+                  2 = '老';
 value CVDfmt 0 = '沒有心血管疾病'
-                        1 = '有心血管疾病';
+             1 = '有心血管疾病';
 run;
 
 data cvd2;
