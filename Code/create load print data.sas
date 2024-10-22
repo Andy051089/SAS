@@ -69,3 +69,10 @@ else if age < 45 then agegroup = 0;
 else = 1;
 run;
 /*缺失值要最先訂條件*/
+
+/*印資料*/
+proc print data = cvd0 label;
+title 'CVD=0';
+run;
+/*如果建資料時有改label，要加label才會print出來
+title為加表格標題*/
