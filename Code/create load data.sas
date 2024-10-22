@@ -60,3 +60,12 @@ run;
 set使用原有資料名
 keep特定col，Firstobs,obs從2000筆到5000
 where選出性別為1*/
+
+/*把連據資料轉換成類別資料並建立新COL*/
+data cvd2;
+set cvd1;
+if age = . then agegroup = .;
+else if age < 45 then agegroup = 0;
+else = 1;
+run;
+/*缺失值要最先訂條件*/
