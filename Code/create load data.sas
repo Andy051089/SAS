@@ -50,3 +50,13 @@ datafile = 'C:\CVD_All.csv'
 /*原本都是存在work暫存檔
 libname設定永久檔名子及位置
 第一次一樣import，之後要用就data set方式*/
+
+/*建立新表，不改變舊的，只引入特定col及row*/
+data cvd2; 
+set hw.cvd1 (keep = CVD age firstobs = 2000 obs = 5000);
+where gender = 1;
+run;
+/*data訂新名
+set使用原有資料名
+keep特定col，Firstobs,obs從2000筆到5000
+where選出性別為1*/
